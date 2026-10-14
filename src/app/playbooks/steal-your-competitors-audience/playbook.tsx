@@ -70,6 +70,10 @@ const checklistGroups: ChecklistGroup[] = [
 const checklistStorageKey = "pumpgtm-competitor-audience-checklist";
 const runPlayUrl = "https://pumpgtm.com/skills/message-linkedin-post-engagers?utm_source=lead_magnet&utm_medium=web&utm_campaign=competitor_audience";
 
+function ArrowIcon() {
+  return <svg aria-hidden="true" className="arrow-icon" fill="none" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" /></svg>;
+}
+
 function limitText(value: string, maxLength: number) {
   const normalized = value.replace(/\s+/g, " ").trim();
   if (normalized.length <= maxLength) return normalized;
@@ -202,7 +206,7 @@ export default function CompetitorAudiencePlaybook() {
             <a href="https://pumpgtm.com/integrations">Integrations</a>
             <a href="https://pumpgtm.com/skills">Resources</a>
           </div>
-          <a className="nav-cta" href={runPlayUrl}>Find Buyers <span>→</span></a>
+          <a className="nav-cta" href={runPlayUrl}>Find Buyers <ArrowIcon /></a>
           <button className="mobile-menu" type="button" aria-label="Open navigation">☰</button>
         </nav>
       </header>
@@ -214,7 +218,7 @@ export default function CompetitorAudiencePlaybook() {
             <div className="hero-copy-area">
               <h1>Your next customers might be in your competitors&apos; comments.</h1>
               <p className="deck">A simple move for finding a few people worth talking to, then writing one message you can stand behind.</p>
-              <a className="primary-button" href="#step-1">Copy this play for your AI <span className="button-icon">→</span></a>
+              <a className="primary-button" href="#step-1">Copy this play for your AI <ArrowIcon /></a>
               <p className="hero-meta"><strong>PumpGTM</strong><span>·</span><span>2 min read</span></p>
             </div>
             <aside className="hero-example" aria-label="One post, three checks">
@@ -303,7 +307,7 @@ export default function CompetitorAudiencePlaybook() {
               <h2 id="step-4-title">Step 4: Let PumpGTM do the heavy lifting.</h2>
               <p className="article-intro">Start with a specific post, not your entire market. Review the source, buyer fit, and one-line reason for every candidate before anything runs.</p>
               <div className="play-callout"><p><strong>Review before action:</strong> no enrollment, credits, messages, or sequences until you have seen the exact people and the exact copy.</p></div>
-              <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Open the PumpGTM play <span className="button-icon">â†’</span></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy the review prompt</button></div>
+              <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Open the PumpGTM play <ArrowIcon /></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy the review prompt</button></div>
             </div>
           </section>
 
@@ -324,7 +328,7 @@ export default function CompetitorAudiencePlaybook() {
                   <div className="field full"><label htmlFor="context">What did someone actually say?</label><textarea id="context" maxLength={600} onChange={(event) => setContext(event.target.value)} placeholder="Paste a short public comment or describe the public problem in your own words." value={context} /><p className="input-note">Use public context only. Leave this empty and the draft keeps a visible placeholder.</p></div>
                   <div className="field full"><label htmlFor="post-url">Public post URL <span>(optional, HTTPS)</span></label><input id="post-url" inputMode="url" maxLength={500} onChange={(event) => setPostUrl(event.target.value)} placeholder="https://www.linkedin.com/posts/..." value={postUrl} />{urlIsInvalid && <p className="input-error">Add a complete HTTPS URL, or leave this field empty.</p>}</div>
                 </div>
-                <div className="worksheet-actions"><button className="primary-button" disabled={!canBuild} type="submit">Build my outreach starter <span className="button-icon">→</span></button><p>Buyer and problem are required. The source URL is optional.</p></div>
+                <div className="worksheet-actions"><button className="primary-button" disabled={!canBuild} type="submit">Build my outreach starter <ArrowIcon /></button><p>Buyer and problem are required. The source URL is optional.</p></div>
               </form>
 
               {built && <section className="output" aria-labelledby="draft-title"><div className="output-header"><p className="draft-label">Draft: review before sending</p><h3 id="draft-title">First-message starter</h3><p>Check the role and company first. A relevant comment is a starting point, not proof they want to buy.</p></div><textarea aria-label="Editable first-message draft" className="draft-area" maxLength={500} onChange={(event) => setMessage(event.target.value)} value={message} /><div className="output-actions"><button className="copy-button" onClick={() => copyText(message, "Message")} type="button">Copy message</button>{copyStatus && <span className={`copy-status${copyError ? " error" : ""}`} aria-live="polite">{copyStatus}</span>}</div><div className="prompt-wrap"><p className="draft-label">PumpGTM handoff prompt</p><textarea aria-label="PumpGTM handoff prompt" className="prompt-area" readOnly value={prompt} /><div className="output-actions"><button className="copy-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy prompt for Claude</button></div></div></section>}
@@ -337,7 +341,7 @@ export default function CompetitorAudiencePlaybook() {
               <p className="article-intro">One useful follow-up can help. Repeating the same ask does not.</p>
               <div className="play-callout"><p><strong>Simple play:</strong> public conversation → relevant connection → short question → one helpful follow-up → human response or stop.</p></div>
               <p>If there is no reply, add new context or a useful example instead of repeating your ask. If they say no, stop. If they reply, stop automation and have a human take over.</p>
-              <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Run this play in PumpGTM <span className="button-icon">→</span></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy prompt for Claude</button></div>
+              <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Run this play in PumpGTM <ArrowIcon /></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy prompt for Claude</button></div>
             </div>
           </section>
 
@@ -363,6 +367,20 @@ export default function CompetitorAudiencePlaybook() {
             </div>
           </section>
         </article>
+
+        <section className="start-play-cta" aria-labelledby="start-play-title">
+          <div>
+            <p className="figure-label">Ready when you are</p>
+            <h2 id="start-play-title">Put your first play to work.</h2>
+            <p>Bring one website or work email to PumpGTM, then review the people and messages before you launch.</p>
+          </div>
+          <form action={runPlayUrl} className="start-play-form" method="get">
+            <label className="sr-only" htmlFor="company-source">Company website or work email</label>
+            <input id="company-source" name="source" placeholder="yourcompany.com or you@company.com" type="text" />
+            <button type="submit">Find Buyers <ArrowIcon /></button>
+            <p><span>Y</span> Backed by Y Combinator</p>
+          </form>
+        </section>
 
         <section className="closing" aria-label="Share this play"><p>Do not message everyone in the comments. Message the few people you have a real reason to talk to.</p><button className="share-button" onClick={sharePage} type="button">Share this play</button></section>
       </main>
