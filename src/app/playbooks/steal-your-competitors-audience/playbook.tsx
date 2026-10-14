@@ -242,12 +242,18 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-1" aria-labelledby="step-1-title">
             <div className="article-column">
-              <h2 id="step-1-title">Step 1: Pick one buyer.</h2>
-              <p className="article-intro">Do not start by collecting names. Start with one person you can describe clearly.</p>
-              <p>Write this sentence before you open a feed: <strong>We sell [product] to [role] at [company type] who struggle with [specific problem].</strong></p>
-              <div className="play-callout"><p className="figure-label">Example</p><p>We sell a support-operations product to Heads of Support at growing B2B SaaS companies dealing with repeat onboarding tickets.</p></div>
-              <p>Then list two or three accounts that buyer follows. Competitors are useful. So are operators, creators, and industry accounts that regularly talk about the problem.</p>
-              <div className="two-up-notes"><p><strong>Keep</strong> the right role, the right company, and a plausible problem.</p><p><strong>Skip</strong> other vendors, giveaway hunters, and people with no buyer fit.</p></div>
+              <p className="section-kicker">Start here · 5 minutes</p>
+              <h2 id="step-1-title">Pick one buyer.<br />Not a big list.</h2>
+              <p className="article-intro">The best outreach starts with a person you can describe clearly, not a spreadsheet full of names.</p>
+              <section className="buyer-brief" aria-label="Buyer brief">
+                <div className="buyer-brief-heading"><span>01</span><div><p className="figure-label">Your buyer brief</p><h3>Write the sentence first.</h3></div></div>
+                <p className="buyer-formula"><span>We sell</span><strong>[product]</strong><span>to</span><strong>[role]</strong><span>at</span><strong>[company type]</strong><span>who struggle with</span><strong>[specific problem].</strong></p>
+                <div className="buyer-example"><p className="figure-label">Example</p><p>We sell a support-operations product to Heads of Support at growing B2B SaaS companies dealing with repeat onboarding tickets.</p></div>
+              </section>
+              <section className="account-watch" aria-label="Accounts to watch">
+                <div className="account-watch-number">02</div><div><p className="figure-label">Build a small watchlist</p><h3>Pick two or three accounts your buyer already follows.</h3><p>Use competitors, operators, creators, and industry accounts that regularly talk about the problem. You are looking for useful conversations, not a giant audience.</p></div>
+              </section>
+              <div className="two-up-notes"><p><strong>Worth keeping</strong>The right role, the right company, and a plausible problem.</p><p><strong>Worth skipping</strong>Other vendors, giveaway hunters, and people with no buyer fit.</p></div>
             </div>
           </section>
 
