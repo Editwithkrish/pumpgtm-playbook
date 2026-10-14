@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     template: "%s | PumpGTM",
   },
   description: "Find buyers and start better conversations.",
+  icons: {
+    icon: "/pumpgtm-mark.webp",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
