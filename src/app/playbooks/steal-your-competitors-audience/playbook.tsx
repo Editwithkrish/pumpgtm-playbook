@@ -249,6 +249,10 @@ function ArrowIcon() {
   return <svg aria-hidden="true" className="arrow-icon" fill="none" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" /></svg>;
 }
 
+function ExternalArrowIcon() {
+  return <svg aria-hidden="true" className="external-arrow-icon" fill="none" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" /></svg>;
+}
+
 function limitText(value: string, maxLength: number) {
   const normalized = value.replace(/\s+/g, " ").trim();
   if (normalized.length <= maxLength) return normalized;
@@ -294,6 +298,8 @@ export default function CompetitorAudiencePlaybook() {
   const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [checklistReady, setChecklistReady] = useState(false);
   const [isPromptPreviewOpen, setIsPromptPreviewOpen] = useState(false);
+  const [instagramLoaded, setInstagramLoaded] = useState(false);
+  const [readProgress, setReadProgress] = useState(0);
   const promptAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const canBuild = buyer.trim().length >= 3 && problem.trim().length >= 3 && validHttpsUrl(postUrl);
@@ -308,6 +314,20 @@ export default function CompetitorAudiencePlaybook() {
     area.style.height = "auto";
     area.style.height = `${Math.max(400, area.scrollHeight)}px`;
   }, [prompt]);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const maximum = document.documentElement.scrollHeight - window.innerHeight;
+      setReadProgress(maximum > 0 ? Math.min(100, Math.max(0, (window.scrollY / maximum) * 100)) : 0);
+    };
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isPromptPreviewOpen) return;
@@ -404,6 +424,7 @@ export default function CompetitorAudiencePlaybook() {
 
   return (
     <div className="site-shell">
+      <div aria-label="Reading progress" aria-valuemax={100} aria-valuemin={0} aria-valuenow={Math.round(readProgress)} className="reading-progress" role="progressbar"><span style={{ width: `${readProgress}%` }} /></div>
       <header className="site-header">
         <nav className="nav" aria-label="Main navigation">
           <a className="brand" href="https://pumpgtm.com"><Image alt="" height={40} src="/pumpgtm-mark.webp" width={40} /><span>PumpGTM</span></a>
@@ -510,15 +531,22 @@ export default function CompetitorAudiencePlaybook() {
             </div>
           </section>
 
+          <section className="mcp-video-section" aria-labelledby="mcp-video-title">
+            <div className="mcp-video-copy">
+              <h2 id="mcp-video-title">The free MCP that finds you leads</h2>
+              <p>Connect it once in Claude, ChatGPT, Cursor, or Codex. Then the prompts in this playbook can help you research people, draft messages, and wait for your review.</p>
+              <a className="instagram-link" href="https://www.instagram.com/p/DdKTsEsSTXI/" rel="noreferrer" target="_blank">Watch on Instagram <ExternalArrowIcon /></a>
+              <p className="mcp-video-note">Video blocked or asking you to log in? Open the original above. The written guide still works without it.</p>
+            </div>
+            <div className="mcp-video-player">
+              {instagramLoaded ? <div className="instagram-embed"><iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen loading="lazy" src="https://www.instagram.com/p/DdKTsEsSTXI/embed/" title="PumpGTM MCP Instagram video" /><button className="instagram-close" onClick={() => setInstagramLoaded(false)} type="button">Close player</button></div> : <button className="instagram-load" onClick={() => setInstagramLoaded(true)} type="button"><span className="instagram-load-icon"><svg aria-hidden="true" fill="none" viewBox="0 0 24 24"><path d="m9 7 8 5-8 5V7Z" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.8" /></svg></span><strong>Load Instagram video</strong><small>The written guide works without it.</small></button>}
+            </div>
+          </section>
+
           <section className="article-section" id="step-5" aria-labelledby="step-5-title">
             <div className="article-column">
               <h2 id="step-5-title">Step 5: Write a message that earns a reply.</h2>
               <p className="article-intro">Use the thing they actually said. Make one observation. Ask one question. Do not turn the first message into a pitch.</p>
-              <figure className="walkthrough-figure">
-                <div><h3>Watch the move in one minute</h3><p>A short walkthrough of the research and review flow.</p></div>
-                <div className="video-stage"><button className="play-circle" type="button" aria-label="Video preview play button">▶</button><small>Preview · 1:12</small></div>
-              </figure>
-
               <h3>Build your first line</h3>
               <form className="worksheet" onSubmit={handleBuild}>
                 <div className="form-grid">
