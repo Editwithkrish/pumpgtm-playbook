@@ -237,8 +237,7 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-1" aria-labelledby="step-1-title">
             <div className="article-column">
-              <p className="section-kicker">Step 01</p>
-              <h2 id="step-1-title">Start with one buyer.</h2>
+              <h2 id="step-1-title">Step 1: Pick one buyer.</h2>
               <p className="article-intro">Start with the person you want more conversations with. Not a market. Not a list. A real person with a job to do and a problem you can help with.</p>
               <section className="buyer-brief" aria-label="Buyer brief">
                 <p className="buyer-label">Your one-line ICP</p>
@@ -254,8 +253,7 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-2" aria-labelledby="step-2-title">
             <div className="article-column">
-              <p className="section-kicker">Step 02</p>
-              <h2 id="step-2-title">Find one useful post.</h2>
+              <h2 id="step-2-title">Step 2: Find a post with a real problem in it.</h2>
               <p className="article-intro">Ignore broad engagement. Look for a recent public conversation where someone is trying to solve the kind of problem you solve.</p>
               <p className="article-intro">The post gives you context. The comment tells you what to look into. Save the original link and read the whole thread before you do anything else.</p>
 
@@ -275,8 +273,7 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-3" aria-labelledby="step-3-title">
             <div className="article-column">
-              <p className="section-kicker">Step 03</p>
-              <h2 id="step-3-title">Build a small shortlist.</h2>
+              <h2 id="step-3-title">Step 3: Review the person, not just the comment.</h2>
               <p className="article-intro">A good shortlist is small enough to explain. Every name on it should come with a clear reason they belong there.</p>
               <ol className="steps"><li><strong>Fit:</strong> would this person have a say in the problem or the budget around it?</li><li><strong>Evidence:</strong> what public detail makes the conversation relevant right now?</li><li><strong>Timing:</strong> is the post recent enough that a message will feel natural?</li></ol>
               <p>If you cannot write one honest sentence about why you are reaching out, leave them off the list.</p>
@@ -285,8 +282,7 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-4" aria-labelledby="step-4-title">
             <div className="article-column">
-              <p className="section-kicker">Step 04</p>
-              <h2 id="step-4-title">Research before you run.</h2>
+              <h2 id="step-4-title">Step 4: Ask PumpGTM to research, not send.</h2>
               <p className="article-intro">Give PumpGTM one specific source post. Ask it to bring back a short, reviewable list with the source and a one-line reason for each person.</p>
               <div className="play-callout"><p><strong>The rule:</strong> review the people, the message, and the cost before you activate anything.</p></div>
               <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Open the PumpGTM play <ArrowIcon /></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy the review prompt</button></div>
@@ -295,8 +291,7 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-5" aria-labelledby="step-5-title">
             <div className="article-column">
-              <p className="section-kicker">Step 05</p>
-              <h2 id="step-5-title">Write the first message.</h2>
+              <h2 id="step-5-title">Step 5: Write a message that earns a reply.</h2>
               <p className="article-intro">Use the thing they actually said. Make one observation. Ask one question. Do not turn the first message into a pitch.</p>
               <figure className="walkthrough-figure">
                 <div><p className="figure-label">Mock video placeholder</p><h3>Watch the move in one minute</h3><p>Replace this with an approved PumpGTM walkthrough when one is ready.</p></div>
@@ -321,8 +316,7 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-6" aria-labelledby="step-6-title">
             <div className="article-column">
-              <p className="section-kicker">Step 06</p>
-              <h2 id="step-6-title">Follow up once.</h2>
+              <h2 id="step-6-title">Step 6: Follow up without becoming the spam.</h2>
               <p className="article-intro">A second message only earns its place when it adds something useful. A bump does not.</p>
               <div className="play-callout"><p><strong>Simple play:</strong> a relevant public moment, a short question, one useful follow-up, then a real reply or a stop.</p></div>
               <p>If there is no reply, share a useful example or a fresh piece of context. If they say no, stop. If they reply, stop automation and take over as a human.</p>
@@ -332,8 +326,7 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-7" aria-labelledby="step-7-title">
             <div className="article-column">
-              <p className="section-kicker">Step 07</p>
-              <h2 id="step-7-title">Track real conversations.</h2>
+              <h2 id="step-7-title">Step 7: Track the conversation, not the vanity signal.</h2>
               <p className="article-intro">A like is not buying intent. A reply to a free guide is not a sales lead. Your first win is a qualified conversation with the right person.</p>
               <ol className="steps"><li>Relevant people reviewed</li><li>Messages approved</li><li>Genuine replies</li><li>Meaningful conversations</li><li>Trials, demos, and paying customers</li></ol>
               <p>When someone is a real fit, show the smallest workflow that solves the problem they already described.</p>
