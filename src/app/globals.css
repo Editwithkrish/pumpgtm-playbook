@@ -13,12 +13,17 @@
   --danger: #ff9a9a;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; scrollbar-color: rgba(120, 141, 181, .7) transparent; scrollbar-width: thin; }
 html { background: var(--canvas); scroll-behavior: smooth; }
 body { margin: 0; background: var(--canvas); color: var(--text); font-family: var(--font-hanken-grotesk), Arial, Helvetica, sans-serif; }
 button, input, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid #a8c1ff; outline-offset: 3px; }
+::-webkit-scrollbar { height: 8px; width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(119, 141, 181, .7); border: 2px solid transparent; border-radius: 999px; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: rgba(157, 180, 226, .9); border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-button { display: none; height: 0; width: 0; }
 
 .landing-redirect { margin: 12rem auto; max-width: 680px; padding: 0 24px; }
 .landing-redirect a { color: #c2d2ff; font-weight: 600; }
