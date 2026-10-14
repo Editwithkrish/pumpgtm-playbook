@@ -227,7 +227,14 @@ export default function CompetitorAudiencePlaybook() {
               <h1>Your next customers might be in your competitors&apos; comments.</h1>
               <p className="deck">A simple move for finding a few people worth talking to, then writing one message you can stand behind.</p>
               <a className="primary-button" href="#step-1">Copy this play for your AI <ArrowIcon /></a>
-              <p className="hero-meta"><strong>PumpGTM</strong><span>·</span><span>2 min read</span></p>
+              <p className="ai-note">Paste it into Claude, ChatGPT, or your AI. <a href="#step-4">Preview the prompt</a></p>
+              <div className="author-byline">
+                <div className="author-row">
+                  <span className="author-avatar"><Image alt="" height={32} src="/pumpgtm-mark.webp" width={32} /></span>
+                  <div><p className="author-name">PumpGTM team</p><p className="author-role">Founder-led playbook <span>·</span> 7 min read</p></div>
+                </div>
+                <p className="publish-date">Updated October 15, 2026</p>
+              </div>
             </div>
             <aside className="hero-example" aria-label="One post, three checks">
               <h2>One post. Three checks.</h2>
