@@ -37,7 +37,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .brand img { display: block; height: 40px; width: 40px; }
 .nav-links { align-items: center; display: flex; gap: 41px; margin-left: auto; margin-right: 190px; }
 .nav-links a { color: #b7bfce; font-size: 16px; font-weight: 500; text-decoration: none; }
-.nav-links a::after { content: "v"; font-size: 11px; margin-left: 9px; vertical-align: 2px; }
+.nav-links a::after { border-bottom: 1.5px solid currentColor; border-right: 1.5px solid currentColor; content: ""; display: inline-block; height: 6px; margin-left: 11px; transform: rotate(45deg) translateY(-2px); vertical-align: 3px; width: 6px; }
 .nav-cta, .primary-button { align-items: center; background: linear-gradient(135deg, #5f87ff, #275cf2 72%); border: 0; border-radius: 12px; box-shadow: 0 8px 35px rgba(35, 87, 221, .20); color: white; cursor: pointer; display: inline-flex; font-weight: 600; justify-content: center; text-decoration: none; transition: background .15s ease, transform .15s ease; }
 .nav-cta { border-radius: 14px; font-size: 16px; gap: 12px; min-height: 48px; padding: 0 18px; }
 .arrow-icon { flex: 0 0 auto; height: 21px; width: 21px; }
