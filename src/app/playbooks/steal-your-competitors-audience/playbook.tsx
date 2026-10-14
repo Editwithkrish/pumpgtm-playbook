@@ -370,9 +370,8 @@ export default function CompetitorAudiencePlaybook() {
 
         <section className="start-play-cta" aria-labelledby="start-play-title">
           <div>
-            <p className="figure-label">Ready when you are</p>
             <h2 id="start-play-title">Put your first play to work.</h2>
-            <p>Bring one website or work email to PumpGTM, then review the people and messages before you launch.</p>
+            <p>Enter your website to build your buyer profile in PumpGTM. Review the people and messages before you launch.</p>
           </div>
           <form action={runPlayUrl} className="start-play-form" method="get">
             <label className="sr-only" htmlFor="company-source">Company website or work email</label>
