@@ -3,11 +3,9 @@
 import Image from "next/image";
 import { type FormEvent, useEffect, useMemo, useState } from "react";
 
-type Choice = "research" | "context" | "skip";
-
 type Signal = {
   observation: string;
-  bestChoice: Choice;
+  decision: string;
   why: string;
 };
 
@@ -16,26 +14,20 @@ type ChecklistGroup = {
   items: Array<[string, string]>;
 };
 
-const choices: Record<Choice, string> = {
-  research: "Worth researching",
-  context: "Need context",
-  skip: "Skip",
-};
-
 const signals: Signal[] = [
   {
     observation: "A Head of Support asks how to reduce repeated onboarding tickets.",
-    bestChoice: "research",
+    decision: "Research",
     why: "The role fits. The problem fits. There is a real reason to learn a little more before writing.",
   },
   {
     observation: "Someone simply likes the post.",
-    bestChoice: "context",
+    decision: "Need context",
     why: "A like alone does not tell you what they need, whether they own the problem, or why you should message them.",
   },
   {
     observation: "An agency selling helpdesk automation advertises its own service in the thread.",
-    bestChoice: "skip",
+    decision: "Skip",
     why: "They are selling into the same market. That is not a reason to treat them as a buyer.",
   },
 ];
@@ -108,7 +100,6 @@ Use PumpGTM MCP if connected. If not connected, tell me how to connect it instea
 }
 
 export default function CompetitorAudiencePlaybook() {
-  const [selectedChoices, setSelectedChoices] = useState<Record<number, Choice | undefined>>({});
   const [buyer, setBuyer] = useState("");
   const [problem, setProblem] = useState("");
   const [context, setContext] = useState("");
@@ -246,26 +237,26 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-1" aria-labelledby="step-1-title">
             <div className="article-column">
-              <p className="section-kicker">Start here · 5 minutes</p>
-              <h2 id="step-1-title">Pick one buyer.<br />Not a big list.</h2>
-              <p className="article-intro">The best outreach starts with a person you can describe clearly, not a spreadsheet full of names.</p>
+              <p className="section-kicker">Step 01 / 5 minutes</p>
+              <h2 id="step-1-title">Pick one buyer.</h2>
+              <p className="article-intro">Start with the person you want more conversations with. Not a market. Not a list. A real person with a job to do and a problem you can help with.</p>
               <section className="buyer-brief" aria-label="Buyer brief">
-                <div className="buyer-brief-heading"><span>01</span><div><p className="figure-label">Your buyer brief</p><h3>Write the sentence first.</h3></div></div>
-                <p className="buyer-formula"><span>We sell</span><strong>[product]</strong><span>to</span><strong>[role]</strong><span>at</span><strong>[company type]</strong><span>who struggle with</span><strong>[specific problem].</strong></p>
-                <div className="buyer-example"><p className="figure-label">Example</p><p>We sell a support-operations product to Heads of Support at growing B2B SaaS companies dealing with repeat onboarding tickets.</p></div>
+                <p className="buyer-label">Your one-line ICP</p>
+                <p className="buyer-template">We help <strong>[role]</strong> at <strong>[company type]</strong> when <strong>[specific problem]</strong> becomes hard to ignore.</p>
+                <div className="buyer-example"><p className="figure-label">A useful example</p><p>Heads of Support at 20 to 200 person B2B SaaS companies whose onboarding has made ticket volume hard to manage.</p></div>
               </section>
               <section className="account-watch" aria-label="Accounts to watch">
-                <div className="account-watch-number">02</div><div><p className="figure-label">Build a small watchlist</p><h3>Pick two or three accounts your buyer already follows.</h3><p>Use competitors, operators, creators, and industry accounts that regularly talk about the problem. You are looking for useful conversations, not a giant audience.</p></div>
+                <div><p className="figure-label">Then make a small watchlist</p><h3>Pick three accounts that already have your buyer&apos;s attention.</h3><ul className="watch-list"><li><strong>A competitor</strong> your buyer evaluates or compares.</li><li><strong>An operator</strong> who shares the work behind the problem.</li><li><strong>An industry voice</strong> where people ask practical questions.</li></ul></div>
               </section>
-              <div className="two-up-notes"><p><strong>Worth keeping</strong>The right role, the right company, and a plausible problem.</p><p><strong>Worth skipping</strong>Other vendors, giveaway hunters, and people with no buyer fit.</p></div>
+              <div className="two-up-notes"><p><strong>Keep</strong>the right role, the right company, and a problem you can explain in one sentence.</p><p><strong>Skip</strong>other vendors, generic engagement, and anyone you would struggle to write to honestly.</p></div>
             </div>
           </section>
 
           <section className="article-section" id="step-2" aria-labelledby="step-2-title">
             <div className="article-column">
-              <h2 id="step-2-title">Step 2: Find the post worth researching.</h2>
-              <p className="article-intro">Pick one recent public post where your buyer is already talking about a problem you solve. The post gives you context. The comment gives you the opening.</p>
-              <p className="article-intro">A comment is a reason to look closer, not proof they want to buy. Save the original post link and read the full thread.</p>
+              <h2 id="step-2-title">Step 2: Find a post with a real problem in it.</h2>
+              <p className="article-intro">Ignore broad engagement. Look for a recent public conversation where someone is trying to solve the kind of problem you solve.</p>
+              <p className="article-intro">The post gives you context. The comment tells you what to look into. Save the original link and read the whole thread before you do anything else.</p>
 
               <figure className="comment-figure">
                 <p className="figure-label">Illustrative example, not an actual scraped comment</p>
@@ -273,48 +264,36 @@ export default function CompetitorAudiencePlaybook() {
                 <figcaption>Support software selling to Heads of Support at B2B SaaS companies.</figcaption>
               </figure>
 
-              <h3>Pick the few worth researching</h3>
-              <p>Make one call for each signal. You are deciding what to do next, not scoring strangers.</p>
+              <h3>Read the signal, not the vanity metric</h3>
+              <p>Three things can happen in the same thread. Only one gives you a reason to do more research.</p>
               <div className="signal-list">
-                {signals.map((signal, index) => {
-                  const selected = selectedChoices[index];
-                  const isCorrect = selected === signal.bestChoice;
-                  return (
-                    <article className="signal-card" key={signal.observation}>
-                      <div><h4>{signal.observation}</h4><p>What would you do next?</p></div>
-                      <div className="choice-row" aria-label={`Choose a decision for example ${index + 1}`}>
-                        {(Object.keys(choices) as Choice[]).map((choice) => <button className={`choice-button${selected === choice ? " selected" : ""}`} key={choice} onClick={() => setSelectedChoices((current) => ({ ...current, [index]: choice }))} type="button">{choices[choice]}</button>)}
-                      </div>
-                      {selected && <p className="signal-feedback" aria-live="polite"><strong>{isCorrect ? "That is the useful call. " : `Better call: ${choices[signal.bestChoice]}. `}</strong>{signal.why}</p>}
-                    </article>
-                  );
-                })}
+                {signals.map((signal) => <article className="signal-card" key={signal.observation}><div><h4>{signal.observation}</h4><p>{signal.why}</p></div><span className={`signal-decision ${signal.decision.toLowerCase().replace(" ", "-")}`}>{signal.decision}</span></article>)}
               </div>
             </div>
           </section>
 
           <section className="article-section" id="step-3" aria-labelledby="step-3-title">
             <div className="article-column">
-              <h2 id="step-3-title">Step 3: Turn the audience into a shortlist.</h2>
-              <p className="article-intro">You are not messaging everyone who engaged. You are looking for a small group of people with a credible reason to talk.</p>
-              <ol className="steps"><li>Check whether the person fits the buyer and company profile.</li><li>Write down the public detail that makes the conversation relevant.</li><li>Check whether the conversation is recent enough to matter.</li></ol>
-              <p>If you cannot write one honest sentence about why you are contacting someone, skip them.</p>
+              <h2 id="step-3-title">Step 3: Review the person, not just the comment.</h2>
+              <p className="article-intro">A good shortlist is small enough to explain. Every name on it should come with a clear reason they belong there.</p>
+              <ol className="steps"><li><strong>Fit:</strong> would this person have a say in the problem or the budget around it?</li><li><strong>Evidence:</strong> what public detail makes the conversation relevant right now?</li><li><strong>Timing:</strong> is the post recent enough that a message will feel natural?</li></ol>
+              <p>If you cannot write one honest sentence about why you are reaching out, leave them off the list.</p>
             </div>
           </section>
 
           <section className="article-section" id="step-4" aria-labelledby="step-4-title">
             <div className="article-column">
-              <h2 id="step-4-title">Step 4: Let PumpGTM do the heavy lifting.</h2>
-              <p className="article-intro">Start with a specific post, not your entire market. Review the source, buyer fit, and one-line reason for every candidate before anything runs.</p>
-              <div className="play-callout"><p><strong>Review before action:</strong> no enrollment, credits, messages, or sequences until you have seen the exact people and the exact copy.</p></div>
+              <h2 id="step-4-title">Step 4: Ask PumpGTM to research, not send.</h2>
+              <p className="article-intro">Give PumpGTM one specific source post. Ask it to bring back a short, reviewable list with the source and a one-line reason for each person.</p>
+              <div className="play-callout"><p><strong>The rule:</strong> review the people, the message, and the cost before you activate anything.</p></div>
               <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Open the PumpGTM play <ArrowIcon /></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy the review prompt</button></div>
             </div>
           </section>
 
           <section className="article-section" id="step-5" aria-labelledby="step-5-title">
             <div className="article-column">
-              <h2 id="step-5-title">Step 5: Write a message they could answer.</h2>
-              <p className="article-intro">Use the thing they actually said. Keep it short. Start with one observation and ask one question. The first message is not a pitch.</p>
+              <h2 id="step-5-title">Step 5: Write a message that earns a reply.</h2>
+              <p className="article-intro">Use the thing they actually said. Make one observation. Ask one question. Do not turn the first message into a pitch.</p>
               <figure className="walkthrough-figure">
                 <div><p className="figure-label">Mock video placeholder</p><h3>Watch the move in one minute</h3><p>Replace this with an approved PumpGTM walkthrough when one is ready.</p></div>
                 <div className="video-stage"><button className="play-circle" type="button" aria-label="Mock video play button">▶</button><small>Video placeholder · 1:12</small></div>
@@ -338,18 +317,18 @@ export default function CompetitorAudiencePlaybook() {
 
           <section className="article-section" id="step-6" aria-labelledby="step-6-title">
             <div className="article-column">
-              <h2 id="step-6-title">Step 6: Follow up without becoming the spam.</h2>
-              <p className="article-intro">One useful follow-up can help. Repeating the same ask does not.</p>
-              <div className="play-callout"><p><strong>Simple play:</strong> public conversation → relevant connection → short question → one helpful follow-up → human response or stop.</p></div>
-              <p>If there is no reply, add new context or a useful example instead of repeating your ask. If they say no, stop. If they reply, stop automation and have a human take over.</p>
+              <h2 id="step-6-title">Step 6: Follow up once. Then leave it alone.</h2>
+              <p className="article-intro">A second message only earns its place when it adds something useful. A bump does not.</p>
+              <div className="play-callout"><p><strong>Simple play:</strong> a relevant public moment, a short question, one useful follow-up, then a real reply or a stop.</p></div>
+              <p>If there is no reply, share a useful example or a fresh piece of context. If they say no, stop. If they reply, stop automation and take over as a human.</p>
               <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Run this play in PumpGTM <ArrowIcon /></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy prompt for Claude</button></div>
             </div>
           </section>
 
           <section className="article-section" id="step-7" aria-labelledby="step-7-title">
             <div className="article-column">
-              <h2 id="step-7-title">Step 7: Track the conversation, not the vanity signal.</h2>
-              <p className="article-intro">A like is not buying intent. A reply to a free guide is not a sales lead. Your first win is a qualified conversation.</p>
+              <h2 id="step-7-title">Step 7: Measure the path to a real conversation.</h2>
+              <p className="article-intro">A like is not buying intent. A reply to a free guide is not a sales lead. Your first win is a qualified conversation with the right person.</p>
               <ol className="steps"><li>Relevant people reviewed</li><li>Messages approved</li><li>Genuine replies</li><li>Meaningful conversations</li><li>Trials, demos, and paying customers</li></ol>
               <p>When someone is a real fit, show the smallest workflow that solves the problem they already described.</p>
             </div>
