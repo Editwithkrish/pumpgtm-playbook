@@ -61,6 +61,46 @@ const checklistGroups: ChecklistGroup[] = [
 
 const checklistStorageKey = "pumpgtm-competitor-audience-checklist";
 const runPlayUrl = "https://pumpgtm.com/skills/message-linkedin-post-engagers?utm_source=lead_magnet&utm_medium=web&utm_campaign=competitor_audience";
+const aiPlaybookPrompt = `# Find buyers in your competitors' comments
+
+You are my careful outbound research assistant. Help me find a small number of relevant people from public competitor or industry conversations. Your job is to create a reviewable shortlist and useful first-message drafts. Do not send, enroll, or automate anything.
+
+## First, ask me for
+- What I sell and the problem it solves
+- The buyer role and company type
+- Two or three accounts my buyer is likely to follow
+- A public post URL and the comment or moment worth looking at
+- Any people, companies, or accounts to exclude
+
+## Decision rules
+- A like is not enough. Prefer a person who has described a real problem, asked a practical question, or added useful context.
+- Check the role, company, and public context before treating anyone as a fit.
+- Skip competitors, agencies selling into the same market, existing conversations, opt-outs, and anyone without a clear buyer fit.
+- Mark uncertainty instead of making up a reason to contact someone.
+
+## Workflow
+1. Write one sentence: We sell [product] to [role] at [company type] who struggle with [specific problem].
+2. Review the post and full comment thread. Pull only the people who may match that sentence.
+3. For each possible fit, show the public source, the exact signal, their role and company, and one reason they may be relevant.
+4. Narrow the list to a small sample I can personally review.
+5. Draft one short first message only for people I explicitly select. Use their words, keep it human, ask one real question, and do not include a link in the first message.
+6. Suggest one useful follow-up. Stop the sequence when someone replies, says no, or is not a fit.
+
+## Return the work in this format
+### Buyer brief
+One clear sentence describing the buyer and problem.
+
+### Shortlist
+For each person: name, role, company, public source, evidence, reason for fit, and confidence level.
+
+### First-message options
+One or two options per approved person. Keep each message specific, plainspoken, and under 60 words.
+
+### Review checkpoint
+List the people, messages, source links, and any PumpGTM usage or credit costs. Wait for my approval before any action.
+
+## If PumpGTM is connected
+Show the relevant post-engager workflow, its collection limits, and exactly what it would do. Do not activate it, pay for enrichment, or send messages until I approve the exact people and copy.`;
 
 function ArrowIcon() {
   return <svg aria-hidden="true" className="arrow-icon" fill="none" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" /></svg>;
@@ -110,6 +150,7 @@ export default function CompetitorAudiencePlaybook() {
   const [copyError, setCopyError] = useState(false);
   const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [checklistReady, setChecklistReady] = useState(false);
+  const [isPromptPreviewOpen, setIsPromptPreviewOpen] = useState(false);
   const promptAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const canBuild = buyer.trim().length >= 3 && problem.trim().length >= 3 && validHttpsUrl(postUrl);
@@ -124,6 +165,20 @@ export default function CompetitorAudiencePlaybook() {
     area.style.height = "auto";
     area.style.height = `${Math.max(400, area.scrollHeight)}px`;
   }, [prompt]);
+
+  useEffect(() => {
+    if (!isPromptPreviewOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsPromptPreviewOpen(false);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isPromptPreviewOpen]);
 
   useEffect(() => {
     const restore = window.setTimeout(() => {
@@ -227,7 +282,7 @@ export default function CompetitorAudiencePlaybook() {
               <h1>Your next customers might be in your competitors&apos; comments.</h1>
               <p className="deck">A simple move for finding a few people worth talking to, then writing one message you can stand behind.</p>
               <a className="primary-button" href="#step-1">Copy this play for your AI <ArrowIcon /></a>
-              <p className="ai-note">Paste it into Claude, ChatGPT, or your AI. <a href="#step-4">Preview the prompt</a></p>
+              <p className="ai-note">Paste it into Claude, ChatGPT, or your AI. <button className="preview-link" onClick={() => { setCopyStatus(""); setIsPromptPreviewOpen(true); }} type="button">Preview the prompt</button></p>
               <div className="author-byline">
                 <div className="author-row">
                   <span className="author-avatar"><Image alt="" height={32} src="/pumpgtm-mark.webp" width={32} /></span>
@@ -399,6 +454,15 @@ export default function CompetitorAudiencePlaybook() {
       </main>
 
       <footer className="site-footer"><div className="footer-row"><a className="footer-brand" href="https://pumpgtm.com"><Image alt="" height={30} src="/pumpgtm-mark.webp" width={30} />PumpGTM</a><p>Find buyers and start conversations from your own accounts.</p></div></footer>
+
+      {isPromptPreviewOpen && <div aria-label="Close prompt preview" className="ai-prompt-backdrop" onClick={(event) => { if (event.target === event.currentTarget) setIsPromptPreviewOpen(false); }} role="presentation">
+        <section aria-labelledby="ai-prompt-title" aria-modal="true" className="ai-prompt-modal" role="dialog">
+          <div className="ai-prompt-heading"><h2 id="ai-prompt-title">Copy this playbook for your AI</h2><button aria-label="Close prompt preview" className="ai-prompt-close" onClick={() => setIsPromptPreviewOpen(false)} type="button"><svg aria-hidden="true" fill="none" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeWidth="1.9" /></svg></button></div>
+          <p className="ai-prompt-intro">A complete research brief. Paste it into ChatGPT, Claude, or any AI assistant before you start the play.</p>
+          <textarea aria-label="AI-ready version of this playbook" className="ai-prompt-area" readOnly value={aiPlaybookPrompt} />
+          <div className="ai-prompt-actions"><button className="primary-button" onClick={() => copyText(aiPlaybookPrompt, "Playbook prompt")} type="button">Copy all text</button>{copyStatus && <span className={`copy-status${copyError ? " error" : ""}`} aria-live="polite">{copyStatus}</span>}</div>
+        </section>
+      </div>}
     </div>
   );
 }
