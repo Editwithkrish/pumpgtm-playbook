@@ -187,6 +187,15 @@ export default function CompetitorAudiencePlaybook() {
     }
   }
 
+  function shareToNetwork(network: "x" | "linkedin") {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent("A practical play for finding relevant conversations in a competitor's audience.");
+    const destination = network === "x"
+      ? `https://x.com/intent/post?text=${text}&url=${url}`
+      : `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    window.open(destination, "_blank", "noopener,noreferrer");
+  }
+
   return (
     <div className="site-shell">
       <header className="site-header">
@@ -267,6 +276,11 @@ export default function CompetitorAudiencePlaybook() {
             </div>
           </section>
 
+          <aside className="pumpgtm-inset" aria-label="How PumpGTM helps">
+            <div><p className="figure-label">Use PumpGTM when you are ready</p><h2>Turn the post into a shortlist you can review.</h2><p>Bring in one source post. PumpGTM can help you check the people, keep the source context beside each name, and review the message before anything goes out.</p></div>
+            <a className="secondary-button" href={runPlayUrl}>Explore the play <ArrowIcon /></a>
+          </aside>
+
           <section className="article-section" id="step-3" aria-labelledby="step-3-title">
             <div className="article-column">
               <h2 id="step-3-title">Step 3: Review the person, not just the comment.</h2>
@@ -308,6 +322,16 @@ export default function CompetitorAudiencePlaybook() {
               {built && <section className="output" aria-labelledby="draft-title"><div className="output-header"><p className="draft-label">Draft: review before sending</p><h3 id="draft-title">First-message starter</h3><p>Check the role and company first. A relevant comment is a starting point, not proof they want to buy.</p></div><textarea aria-label="Editable first-message draft" className="draft-area" maxLength={500} onChange={(event) => setMessage(event.target.value)} value={message} /><div className="output-actions"><button className="copy-button" onClick={() => copyText(message, "Message")} type="button">Copy message</button>{copyStatus && <span className={`copy-status${copyError ? " error" : ""}`} aria-live="polite">{copyStatus}</span>}</div></section>}
               <section className="prompt-wrap" aria-label="PumpGTM handoff prompt"><div className="prompt-card-header"><div><p className="draft-label">Ready to copy</p><h3>PumpGTM research prompt</h3></div><button className="prompt-copy" onClick={() => copyText(prompt, "Prompt")} type="button"><svg aria-hidden="true" fill="none" viewBox="0 0 24 24"><rect height="13" rx="2" stroke="currentColor" strokeWidth="1.8" width="13" x="8" y="8" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" /></svg>Copy prompt</button></div><textarea aria-label="PumpGTM handoff prompt" className="prompt-area" readOnly value={prompt} /></section>
             </div>
+          </section>
+
+          <section className="inline-share" aria-labelledby="share-title">
+            <h2 id="share-title">Share this playbook</h2>
+            <div className="inline-share-actions">
+              <button onClick={() => copyText(window.location.href, "Link")} type="button"><svg aria-hidden="true" fill="none" viewBox="0 0 24 24"><rect height="13" rx="2" stroke="currentColor" strokeWidth="1.8" width="13" x="8" y="8" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" /></svg>Copy link</button>
+              <button onClick={() => shareToNetwork("x")} type="button"><span className="x-mark">X</span>Share on X</button>
+              <button onClick={() => shareToNetwork("linkedin")} type="button"><svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M5.2 3.4A2.1 2.1 0 1 1 5.2 7.6a2.1 2.1 0 0 1 0-4.2ZM3.3 9h3.8v12H3.3V9Zm6.2 0h3.6v1.6h.1c.5-1 1.8-2.1 3.8-2.1 4 0 4.8 2.6 4.8 6V21H18v-5.8c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9.5V9Z" /></svg>LinkedIn</button>
+            </div>
+            {copyStatus && <p className={`inline-share-status${copyError ? " error" : ""}`} aria-live="polite">{copyStatus}</p>}
           </section>
 
           <section className="article-section" id="step-6" aria-labelledby="step-6-title">
