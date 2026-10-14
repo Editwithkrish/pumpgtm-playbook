@@ -61,46 +61,189 @@ const checklistGroups: ChecklistGroup[] = [
 
 const checklistStorageKey = "pumpgtm-competitor-audience-checklist";
 const runPlayUrl = "https://pumpgtm.com/skills/message-linkedin-post-engagers?utm_source=lead_magnet&utm_medium=web&utm_campaign=competitor_audience";
-const aiPlaybookPrompt = `# Find buyers in your competitors' comments
+const aiPlaybookPrompt = `Help me apply this PumpGTM playbook to my business.
 
-You are my careful outbound research assistant. Help me find a small number of relevant people from public competitor or industry conversations. Your job is to create a reviewable shortlist and useful first-message drafts. Do not send, enroll, or automate anything.
+First explain the workflow in simple terms. Then ask for my website, what I sell, who I sell to, and two or three accounts my buyer already follows. Help me work through the checklist one decision at a time. Adapt every example and prompt to my answers.
 
-## First, ask me for
-- What I sell and the problem it solves
-- The buyer role and company type
-- Two or three accounts my buyer is likely to follow
-- A public post URL and the comment or moment worth looking at
-- Any people, companies, or accounts to exclude
+Explain where PumpGTM fits in the workflow. Link to https://pumpgtm.com/ and https://pumpgtm.com/mcp when it is relevant. If you do not have connected tools, help me prepare the plan, research criteria, and drafts. Do not claim to have researched people or performed actions you cannot verify. Show me the people and messages before asking to launch anything.
 
-## Decision rules
-- A like is not enough. Prefer a person who has described a real problem, asked a practical question, or added useful context.
-- Check the role, company, and public context before treating anyone as a fit.
-- Skip competitors, agencies selling into the same market, existing conversations, opt-outs, and anyone without a clear buyer fit.
-- Mark uncertainty instead of making up a reason to contact someone.
+# Your next customers might be in your competitors' comments
 
-## Workflow
-1. Write one sentence: We sell [product] to [role] at [company type] who struggle with [specific problem].
-2. Review the post and full comment thread. Pull only the people who may match that sentence.
-3. For each possible fit, show the public source, the exact signal, their role and company, and one reason they may be relevant.
-4. Narrow the list to a small sample I can personally review.
-5. Draft one short first message only for people I explicitly select. Use their words, keep it human, ask one real question, and do not include a link in the first message.
-6. Suggest one useful follow-up. Stop the sequence when someone replies, says no, or is not a fit.
+This is a practical play for finding a few people worth talking to in public competitor and industry conversations, then writing one message you can stand behind.
 
-## Return the work in this format
-### Buyer brief
-One clear sentence describing the buyer and problem.
+## The simple workflow
 
-### Shortlist
-For each person: name, role, company, public source, evidence, reason for fit, and confidence level.
+1. Pick one buyer you can describe clearly.
+2. Watch the accounts that buyer already pays attention to.
+3. Find a post where someone has described a real problem.
+4. Check the person, not just the comment.
+5. Research a short list, write one useful message, and review it before anything runs.
 
-### First-message options
-One or two options per approved person. Keep each message specific, plainspoken, and under 60 words.
+The point is not to collect the biggest possible list. The point is to find a small number of people with a real reason to hear from you.
 
-### Review checkpoint
-List the people, messages, source links, and any PumpGTM usage or credit costs. Wait for my approval before any action.
+## The rules that keep this useful
 
-## If PumpGTM is connected
-Show the relevant post-engager workflow, its collection limits, and exactly what it would do. Do not activate it, pay for enrichment, or send messages until I approve the exact people and copy.`;
+- Use public context only.
+- A like is not buying intent.
+- A role that fits is not enough. Check the company and the context too.
+- Skip competitors, agencies selling into the same market, existing conversations, opt-outs, and people with no clear buyer fit.
+- Mark uncertainty. Do not invent a reason to message someone.
+- Write from the words the person used. Ask one real question. Do not add a link in the first message.
+- Never enroll, enrich, pay, send, or activate a sequence until I have reviewed the exact people, messages, and costs.
+
+## Step 1: Pick one buyer
+
+Do not begin by collecting names. Begin with one sentence you can use to rule people in or out.
+
+Write this sentence first:
+
+We sell [product] to [role] at [company type] who struggle with [specific problem].
+
+Example:
+
+We sell a support-operations product to Heads of Support at growing B2B SaaS companies who struggle with repeat onboarding tickets.
+
+Ask me to fill in the brackets. Then point out anything that is too broad, such as "founders" or "companies that need growth." Help me make the buyer, company type, and problem specific enough to use in a real decision.
+
+### What a good buyer brief includes
+
+- A role with some ownership of the problem.
+- A company type where the problem is likely to exist.
+- A problem the person would recognise in their own words.
+- A clear reason to exclude people who look adjacent but are not buyers.
+
+## Step 2: Build a small watchlist
+
+Pick two or three accounts the buyer already follows. Competitors are useful, but so are operators, creators, and industry accounts that regularly attract useful conversations.
+
+Ask me for the accounts I know. If I do not have any, suggest the kinds of accounts to look for, not made-up account names.
+
+Keep the watchlist small. We are looking for relevant conversations, not a giant audience.
+
+For each account, help me answer:
+
+- Why would my buyer pay attention to this account?
+- What type of post is likely to surface the problem I solve?
+- What would make a commenter a poor fit?
+
+## Step 3: Find a post with a real problem in it
+
+The best source is a public post where someone has said something useful. Good signals include:
+
+- They describe a repeated issue, a blocked project, or a frustrating manual process.
+- They ask a practical question related to the problem.
+- They add context that shows they own, influence, or live with the issue.
+
+Weak signals include:
+
+- They simply liked the post.
+- They wrote a generic compliment.
+- They are promoting their own service in the thread.
+
+When I give you a post or comment, summarise the signal in one sentence. Then tell me whether it is worth researching, needs more context, or should be skipped. Explain why in plain language.
+
+## Step 4: Check the person, not just the comment
+
+Before drafting a message, check only what can be verified from public context:
+
+- Their role and whether they are close to the problem.
+- Their company and whether it resembles the company type in my buyer brief.
+- The original post and full comment thread.
+- Whether they look like a competitor, vendor, existing conversation, or poor fit.
+
+Do not treat a comment as proof that someone wants to buy. It is a reason to learn a little more.
+
+Return a small shortlist. For each person, use this exact format:
+
+Name:
+Role and company:
+Public source:
+What they said or did:
+Why it may fit my buyer brief:
+What is uncertain:
+Decision: research / need context / skip
+
+## Step 5: Use PumpGTM to research, not send
+
+If PumpGTM is connected, ask it to show the available post-engager workflow for the source and its collection limits. Start with a small sample. For each candidate, keep the source and one specific reason for fit visible.
+
+If PumpGTM is not connected, prepare the same shortlist manually and tell me how to connect it at https://pumpgtm.com/mcp. Do not pretend a collection, enrichment, or message has run when you cannot verify it.
+
+Use this handoff prompt when it helps:
+
+\`\`\`text
+Use PumpGTM to help me research a public competitor or industry post.
+
+My buyer: [buyer role and company type]
+The problem I solve: [specific problem]
+Public source post: [URL]
+What caught my attention: [comment or public context]
+
+Show me the available workflow and its limits. Help me review a small sample against my buyer brief. For each possible fit, show the source, role, company, one reason for fit, and uncertainty.
+
+Skip unrelated people, competitors, existing conversations, and opt-outs. Draft a first message only for people I explicitly select. Show every recipient, message, and any usage or credit cost before anything happens. Do not enroll, enrich, send, or activate anything until I approve the exact actions.
+\`\`\`
+
+## Step 6: Write a message that earns a reply
+
+Use their words. Check their role. Then write one short question.
+
+The first message should do three things:
+
+1. Show that you understood the public context.
+2. Connect that context to a problem you genuinely help solve.
+3. Give them an easy question to answer.
+
+Do not use a generic pitch, an exaggerated claim, or a link in the first message. Keep it under 60 words unless I ask for something longer. Lowercase is fine if it matches my voice. No em dashes.
+
+Give me one or two options for each approved person. Label each message with the public source it is based on. Then ask me to choose or edit before we move on.
+
+Example shape:
+
+Saw your comment about [their exact problem]. Is that something your team is still trying to fix at [company]?
+
+## Step 7: Follow up without becoming the spam
+
+A second message only earns its place when it adds something useful. A bump does not.
+
+Suggest one useful follow-up based on a relevant public moment, a short example, or a fresh piece of context. If they reply, say no, or are not a fit, stop the automation and let me take over as a human.
+
+## Before any launch
+
+Work through this checklist with me. Do not mark an item complete unless I confirm it.
+
+### Pick the people
+
+- [ ] I wrote one clear buyer sentence.
+- [ ] I chose two or three accounts to watch.
+- [ ] I picked a post where my buyer discussed a problem I solve.
+- [ ] I read the post and the full comment before deciding to write.
+- [ ] I checked the role and company, not just the comment.
+- [ ] I removed competitors, existing conversations, and people I should not contact.
+
+### Review the work
+
+- [ ] I reviewed each shortlisted person and the public evidence.
+- [ ] I read every first message and checked every claim.
+- [ ] I have one useful follow-up, not a generic bump.
+- [ ] I know what stops the workflow when someone replies or says no.
+- [ ] I approved the exact people, messages, and any costs before launch.
+
+## Weekly review
+
+At the end of the week, help me review the work in five bullets:
+
+1. How many relevant people did I review?
+2. How many messages did I approve and send?
+3. Which source or signal led to real replies?
+4. Which message earned the best conversations?
+5. What is one small change to test next week?
+
+Do not optimise for likes, raw list size, or messages sent. Optimise for qualified conversations with people I have a real reason to talk to.
+
+## Start here
+
+Explain this play back to me in five short bullets. Then ask me for my website, my offer, the buyer I have in mind, and one public account or post to start from.`;
 
 function ArrowIcon() {
   return <svg aria-hidden="true" className="arrow-icon" fill="none" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" /></svg>;
