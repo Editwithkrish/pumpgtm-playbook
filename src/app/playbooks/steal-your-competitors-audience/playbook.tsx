@@ -42,8 +42,10 @@ const signals: Signal[] = [
 
 const checklistGroups: ChecklistGroup[] = [
   {
-    title: "Pick the right post",
+    title: "Set the play up",
     items: [
+      ["buyer-statement", "I wrote one clear sentence describing the buyer, company type, and problem."],
+      ["accounts", "I chose two or three relevant competitor, creator, or industry accounts to watch."],
       ["post", "I picked a post where my buyer is talking about a problem I solve."],
       ["context", "I read the full comment and the post before deciding to write."],
     ],
@@ -60,6 +62,7 @@ const checklistGroups: ChecklistGroup[] = [
     items: [
       ["message", "I read the first message and checked every claim in it."],
       ["approval", "I will approve the people and messages before outreach starts."],
+      ["follow-up", "I have one useful follow-up ready, and I will stop when someone replies or says no."],
     ],
   },
 ];
@@ -227,17 +230,32 @@ export default function CompetitorAudiencePlaybook() {
           </header>
 
           <nav className="contents-nav" aria-label="In this playbook">
-            <a href="#step-1"><span>01</span>Find the signal</a>
-            <a href="#step-2"><span>02</span>Write the message</a>
-            <a href="#step-3"><span>03</span>Run the play</a>
-            <a href="#checklist"><span>04</span>Check before launch</a>
+            <a href="#step-1"><span>01</span>Pick one buyer</a>
+            <a href="#step-2"><span>02</span>Find the post</a>
+            <a href="#step-3"><span>03</span>Build a shortlist</a>
+            <a href="#step-4"><span>04</span>Run it in PumpGTM</a>
+            <a href="#step-5"><span>05</span>Write the message</a>
+            <a href="#step-6"><span>06</span>Follow up once</a>
+            <a href="#step-7"><span>07</span>Track the outcome</a>
+            <a href="#checklist"><span>08</span>Launch checklist</a>
           </nav>
 
           <section className="article-section" id="step-1" aria-labelledby="step-1-title">
             <div className="article-column">
-              <h2 id="step-1-title">Step 1: Start with one real conversation.</h2>
-              <p className="article-intro">Pick a public post where your buyer is already talking about a problem you solve. The post gives you context. The comment gives you the opening.</p>
-              <p className="article-intro">You still need to check the person. The comment is a reason to look closer, not proof they want to buy.</p>
+              <h2 id="step-1-title">Step 1: Pick one buyer.</h2>
+              <p className="article-intro">Do not start by collecting names. Start with one person you can describe clearly.</p>
+              <p>Write this sentence before you open a feed: <strong>We sell [product] to [role] at [company type] who struggle with [specific problem].</strong></p>
+              <div className="play-callout"><p className="figure-label">Example</p><p>We sell a support-operations product to Heads of Support at growing B2B SaaS companies dealing with repeat onboarding tickets.</p></div>
+              <p>Then list two or three accounts that buyer follows. Competitors are useful. So are operators, creators, and industry accounts that regularly talk about the problem.</p>
+              <div className="two-up-notes"><p><strong>Keep</strong> the right role, the right company, and a plausible problem.</p><p><strong>Skip</strong> other vendors, giveaway hunters, and people with no buyer fit.</p></div>
+            </div>
+          </section>
+
+          <section className="article-section" id="step-2" aria-labelledby="step-2-title">
+            <div className="article-column">
+              <h2 id="step-2-title">Step 2: Find the post worth researching.</h2>
+              <p className="article-intro">Pick one recent public post where your buyer is already talking about a problem you solve. The post gives you context. The comment gives you the opening.</p>
+              <p className="article-intro">A comment is a reason to look closer, not proof they want to buy. Save the original post link and read the full thread.</p>
 
               <figure className="comment-figure">
                 <p className="figure-label">Illustrative example, not an actual scraped comment</p>
@@ -265,10 +283,28 @@ export default function CompetitorAudiencePlaybook() {
             </div>
           </section>
 
-          <section className="article-section" id="step-2" aria-labelledby="step-2-title">
+          <section className="article-section" id="step-3" aria-labelledby="step-3-title">
             <div className="article-column">
-              <h2 id="step-2-title">Step 2: Write one message with a reason behind it.</h2>
-              <p className="article-intro">Use the thing they actually said. Keep it short. Ask whether the problem is one they are working on right now.</p>
+              <h2 id="step-3-title">Step 3: Turn the audience into a shortlist.</h2>
+              <p className="article-intro">You are not messaging everyone who engaged. You are looking for a small group of people with a credible reason to talk.</p>
+              <ol className="steps"><li>Check whether the person fits the buyer and company profile.</li><li>Write down the public detail that makes the conversation relevant.</li><li>Check whether the conversation is recent enough to matter.</li></ol>
+              <p>If you cannot write one honest sentence about why you are contacting someone, skip them.</p>
+            </div>
+          </section>
+
+          <section className="article-section" id="step-4" aria-labelledby="step-4-title">
+            <div className="article-column">
+              <h2 id="step-4-title">Step 4: Let PumpGTM do the heavy lifting.</h2>
+              <p className="article-intro">Start with a specific post, not your entire market. Review the source, buyer fit, and one-line reason for every candidate before anything runs.</p>
+              <div className="play-callout"><p><strong>Review before action:</strong> no enrollment, credits, messages, or sequences until you have seen the exact people and the exact copy.</p></div>
+              <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Open the PumpGTM play <span className="button-icon">â†’</span></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy the review prompt</button></div>
+            </div>
+          </section>
+
+          <section className="article-section" id="step-5" aria-labelledby="step-5-title">
+            <div className="article-column">
+              <h2 id="step-5-title">Step 5: Write a message they could answer.</h2>
+              <p className="article-intro">Use the thing they actually said. Keep it short. Start with one observation and ask one question. The first message is not a pitch.</p>
               <figure className="walkthrough-figure">
                 <div><p className="figure-label">Mock video placeholder</p><h3>Watch the move in one minute</h3><p>Replace this with an approved PumpGTM walkthrough when one is ready.</p></div>
                 <div className="video-stage"><button className="play-circle" type="button" aria-label="Mock video play button">▶</button><small>Video placeholder · 1:12</small></div>
@@ -289,12 +325,22 @@ export default function CompetitorAudiencePlaybook() {
             </div>
           </section>
 
-          <section className="article-section" id="step-3" aria-labelledby="step-3-title">
+          <section className="article-section" id="step-6" aria-labelledby="step-6-title">
             <div className="article-column">
-              <h2 id="step-3-title">Step 3: Run it in PumpGTM.</h2>
-              <p className="article-intro">PumpGTM can help you find and review the people who engaged with a relevant LinkedIn post. You see the people and the messages before anything starts.</p>
-              <ol className="steps"><li>Pick the post whose audience matches your buyer.</li><li>Review a small group of engagers against your buyer profile.</li><li>Approve the people and the message before outreach starts.</li></ol>
+              <h2 id="step-6-title">Step 6: Follow up without becoming the spam.</h2>
+              <p className="article-intro">One useful follow-up can help. Repeating the same ask does not.</p>
+              <div className="play-callout"><p><strong>Simple play:</strong> public conversation → relevant connection → short question → one helpful follow-up → human response or stop.</p></div>
+              <p>If there is no reply, add new context or a useful example instead of repeating your ask. If they say no, stop. If they reply, stop automation and have a human take over.</p>
               <div className="cta-row"><a className="primary-button" href={runPlayUrl}>Run this play in PumpGTM <span className="button-icon">→</span></a><button className="secondary-button" onClick={() => copyText(prompt, "Prompt")} type="button">Copy prompt for Claude</button></div>
+            </div>
+          </section>
+
+          <section className="article-section" id="step-7" aria-labelledby="step-7-title">
+            <div className="article-column">
+              <h2 id="step-7-title">Step 7: Track the conversation, not the vanity signal.</h2>
+              <p className="article-intro">A like is not buying intent. A reply to a free guide is not a sales lead. Your first win is a qualified conversation.</p>
+              <ol className="steps"><li>Relevant people reviewed</li><li>Messages approved</li><li>Genuine replies</li><li>Meaningful conversations</li><li>Trials, demos, and paying customers</li></ol>
+              <p>When someone is a real fit, show the smallest workflow that solves the problem they already described.</p>
             </div>
           </section>
 
