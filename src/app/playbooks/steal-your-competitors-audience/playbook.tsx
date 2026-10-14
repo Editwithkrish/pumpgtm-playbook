@@ -225,14 +225,10 @@ export default function CompetitorAudiencePlaybook() {
           </header>
 
           <nav className="contents-nav" aria-label="In this playbook">
-            <a href="#step-1"><span>01</span>Pick one buyer</a>
-            <a href="#step-2"><span>02</span>Find the post</a>
-            <a href="#step-3"><span>03</span>Build a shortlist</a>
-            <a href="#step-4"><span>04</span>Run it in PumpGTM</a>
-            <a href="#step-5"><span>05</span>Write the message</a>
-            <a href="#step-6"><span>06</span>Follow up once</a>
-            <a href="#step-7"><span>07</span>Track the outcome</a>
-            <a href="#checklist"><span>08</span>Launch checklist</a>
+            <a href="#step-1"><span>01</span>Set your criteria</a>
+            <a href="#step-2"><span>02</span>Find the right signal</a>
+            <a href="#step-5"><span>03</span>Write the first message</a>
+            <a href="#step-6"><span>04</span>Run the play carefully</a>
           </nav>
 
           <section className="article-section" id="step-1" aria-labelledby="step-1-title">
