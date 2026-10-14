@@ -30,7 +30,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .site-shell { min-height: 100vh; overflow: hidden; }
 
 .site-header { height: 86px; padding: 12px 12px 0; }
-.nav { align-items: center; background: #0e1015; border: 1px solid rgba(255,255,255,.11); border-radius: 18px; display: flex; height: 74px; justify-content: space-between; margin: 0 auto; max-width: 1600px; padding: 0 23px 0 27px; }
+.nav { align-items: center; background: #0e1015; border: 1px solid rgba(255,255,255,.11); border-radius: 18px; display: flex; height: 74px; justify-content: space-between; margin: 0 auto; max-width: 1326px; padding: 0 23px 0 27px; }
 .brand { align-items: center; color: var(--text); display: inline-flex; font-size: 23px; font-weight: 500; gap: 10px; letter-spacing: -.55px; text-decoration: none; }
 .brand img { display: block; height: 40px; width: 40px; }
 .nav-links { align-items: center; display: flex; gap: 41px; margin-left: auto; margin-right: 190px; }
@@ -41,7 +41,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .arrow-icon { flex: 0 0 auto; height: 21px; width: 21px; }
 .mobile-menu { display: none; }
 
-.page-main { margin: 0 auto; max-width: 1600px; padding: 76px 44px 96px; }
+.page-main { margin: 0 auto; max-width: 1326px; padding: 76px 40px 96px; }
 .all-guides { color: #bdc7d8; display: inline-block; font-size: 17px; margin-bottom: 41px; text-decoration: none; }
 .playbook-hero { align-items: center; display: grid; gap: 64px; grid-template-columns: minmax(0, 1.3fr) minmax(360px, 1fr); }
 .hero-copy-area h1 { color: var(--text); font-size: clamp(3.25rem, 5.3vw, 4.24rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.04; margin: 0; max-width: 660px; }
@@ -205,7 +205,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .closing { border-top: 1px solid var(--line-soft); display: flex; gap: 28px; justify-content: space-between; margin: 80px auto 0; max-width: 760px; padding-top: 45px; }
 .closing p { color: #f0f3fa; font-size: 26px; font-weight: 500; letter-spacing: -.025em; line-height: 1.25; margin: 0; max-width: 560px; }
 .site-footer { border-top: 1px solid var(--line-soft); padding: 44px; }
-.footer-row { align-items: center; display: flex; gap: 24px; justify-content: space-between; margin: 0 auto; max-width: 1512px; }
+.footer-row { align-items: center; display: flex; gap: 24px; justify-content: space-between; margin: 0 auto; max-width: 1246px; }
 .footer-brand { align-items: center; color: #fff; display: flex; font-size: 20px; font-weight: 500; gap: 9px; text-decoration: none; }
 .footer-brand img { height: 30px; width: 30px; }
 .footer-row p { color: #929eb1; font-size: 14px; margin: 0; }
