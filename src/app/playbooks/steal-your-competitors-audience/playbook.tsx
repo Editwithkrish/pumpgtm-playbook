@@ -458,12 +458,11 @@ export default function CompetitorAudiencePlaybook() {
               <h2 id="step-1-title">Step 1: Pick one buyer.</h2>
               <p className="article-intro">Start with the person you want more conversations with. Not a market. Not a list. A real person with a job to do and a problem you can help with.</p>
               <section className="buyer-brief" aria-label="Buyer brief">
-                <p className="buyer-label">Your one-line ICP</p>
                 <p className="buyer-template">We help <strong>[role]</strong> at <strong>[company type]</strong> when <strong>[specific problem]</strong> becomes hard to ignore.</p>
-                <div className="buyer-example"><p className="figure-label">A useful example</p><p>Heads of Support at 20 to 200 person B2B SaaS companies whose onboarding has made ticket volume hard to manage.</p></div>
+                <div className="buyer-example"><p><strong>Example:</strong> Heads of Support at 20 to 200 person B2B SaaS companies whose onboarding has made ticket volume hard to manage.</p></div>
               </section>
               <section className="account-watch" aria-label="Accounts to watch">
-                <div><p className="figure-label">Then make a small watchlist</p><h3>Pick three accounts that already have your buyer&apos;s attention.</h3><ul className="watch-list"><li><strong>A competitor</strong> your buyer evaluates or compares.</li><li><strong>An operator</strong> who shares the work behind the problem.</li><li><strong>An industry voice</strong> where people ask practical questions.</li></ul></div>
+                <div><h3>Pick three accounts that already have your buyer&apos;s attention.</h3><ul className="watch-list"><li><strong>A competitor</strong> your buyer evaluates or compares.</li><li><strong>An operator</strong> who shares the work behind the problem.</li><li><strong>An industry voice</strong> where people ask practical questions.</li></ul></div>
               </section>
               <div className="two-up-notes"><p><strong>Keep</strong>the right role, the right company, and a problem you can explain in one sentence.</p><p><strong>Skip</strong>other vendors, generic engagement, and anyone you would struggle to write to honestly.</p></div>
             </div>
@@ -476,9 +475,8 @@ export default function CompetitorAudiencePlaybook() {
               <p className="article-intro">The post gives you context. The comment tells you what to look into. Save the original link and read the whole thread before you do anything else.</p>
 
               <figure className="comment-figure">
-                <p className="figure-label">Illustrative example, not an actual scraped comment</p>
                 <blockquote>&quot;How are teams handling the same onboarding tickets every week?&quot;</blockquote>
-                <figcaption>Support software selling to Heads of Support at B2B SaaS companies.</figcaption>
+                <figcaption>Example only. A public comment worth investigating for a support product.</figcaption>
               </figure>
 
               <h3>Read the signal, not the vanity metric</h3>
@@ -490,7 +488,7 @@ export default function CompetitorAudiencePlaybook() {
           </section>
 
           <aside className="pumpgtm-inset" aria-label="How PumpGTM helps">
-            <div><p className="figure-label">Use PumpGTM when you are ready</p><h2>Turn the post into a shortlist you can review.</h2><p>Bring in one source post. PumpGTM can help you check the people, keep the source context beside each name, and review the message before anything goes out.</p></div>
+            <div><h2>Turn the post into a shortlist you can review.</h2><p>Bring in one source post. PumpGTM can help you check the people, keep the source context beside each name, and review the message before anything goes out.</p></div>
             <a className="secondary-button" href={runPlayUrl}>Explore the play <ArrowIcon /></a>
           </aside>
 
@@ -517,8 +515,8 @@ export default function CompetitorAudiencePlaybook() {
               <h2 id="step-5-title">Step 5: Write a message that earns a reply.</h2>
               <p className="article-intro">Use the thing they actually said. Make one observation. Ask one question. Do not turn the first message into a pitch.</p>
               <figure className="walkthrough-figure">
-                <div><p className="figure-label">Mock video placeholder</p><h3>Watch the move in one minute</h3><p>Replace this with an approved PumpGTM walkthrough when one is ready.</p></div>
-                <div className="video-stage"><button className="play-circle" type="button" aria-label="Mock video play button">▶</button><small>Video placeholder · 1:12</small></div>
+                <div><h3>Watch the move in one minute</h3><p>A short walkthrough of the research and review flow.</p></div>
+                <div className="video-stage"><button className="play-circle" type="button" aria-label="Video preview play button">▶</button><small>Preview · 1:12</small></div>
               </figure>
 
               <h3>Build your first line</h3>

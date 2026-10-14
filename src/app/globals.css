@@ -95,13 +95,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .article-column h3 { color: #f3f5fa; font-size: 27px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; margin: 48px 0 13px; }
 .article-column h3 + p { color: #c3cad6; font-size: 18px; line-height: 1.55; margin: 0; }
 .article-column > p:not(.article-intro) { color: #c3cad6; font-size: 18px; line-height: 1.6; }
-.section-kicker { color: #82a1ff !important; font-size: 13px !important; font-weight: 700; letter-spacing: .12em; margin: 0 0 14px !important; text-transform: uppercase; }
 .buyer-brief { background: #101720; border: 1px solid rgba(149,170,208,.24); border-radius: 16px; margin: 34px 0 30px; padding: 27px 30px; }
-.buyer-label { color: #91adff; font-size: 13px; font-weight: 700; letter-spacing: .1em; margin: 0 0 14px; text-transform: uppercase; }
 .buyer-template { color: #dde5f2; font-size: 22px; letter-spacing: -.015em; line-height: 1.45; margin: 0; }
 .buyer-template strong { color: #fff; font-weight: 600; }
 .buyer-example { border-top: 1px solid rgba(255,255,255,.11); margin-top: 22px; padding-top: 19px; }
-.buyer-example .figure-label, .account-watch .figure-label { margin-bottom: 6px !important; }
 .buyer-example p:last-child { color: #bfcadb; font-size: 17px; line-height: 1.55; margin: 0; max-width: 620px; }
 .account-watch { border-bottom: 1px solid var(--line-soft); border-top: 1px solid var(--line-soft); padding: 28px 0 25px; }
 .account-watch h3 { font-size: 25px; margin: 0 0 18px; }
@@ -111,10 +108,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .watch-list strong { color: #e9eef7; font-weight: 600; }
 .play-callout { background: radial-gradient(at 100% 0%, rgba(37,73,128,.24), transparent 65%), var(--surface); border: 1px solid rgba(114,141,205,.28); border-radius: 15px; color: #cbd3df; line-height: 1.6; margin: 28px 0; padding: 21px 23px; }
 .play-callout p { margin: 0; }
-.play-callout .figure-label { margin-bottom: 9px !important; }
 .pumpgtm-inset { align-items: end; border-bottom: 1px solid var(--line-soft); border-top: 1px solid var(--line-soft); display: flex; gap: 34px; justify-content: space-between; margin: 78px auto 0; max-width: 760px; padding: 33px 0; }
 .pumpgtm-inset > div { max-width: 565px; }
-.pumpgtm-inset .figure-label { margin-bottom: 8px !important; }
 .pumpgtm-inset h2 { color: #f2f5fa; font-size: 27px; font-weight: 500; letter-spacing: -.025em; line-height: 1.2; margin: 0 0 10px; }
 .pumpgtm-inset p:last-child { color: #aeb9ca; line-height: 1.55; margin: 0; }
 .pumpgtm-inset .secondary-button { flex: 0 0 auto; gap: 9px; white-space: nowrap; }
@@ -125,7 +120,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .two-up-notes strong { color: #f3f5fa; display: block; margin-bottom: 4px; }
 
 .comment-figure { background: radial-gradient(at 100% 0%, rgba(37,73,128,.24), transparent 64%), var(--surface); border: 1px solid rgba(114,141,205,.28); border-radius: 18px; margin: 42px 0 0; padding: 30px; }
-.figure-label { color: #9aadda; font-size: 13px !important; font-weight: 600; letter-spacing: .065em; margin: 0 0 18px !important; text-transform: uppercase; }
 .comment-figure blockquote { color: #f2f5fc; font-size: 31px; font-weight: 500; letter-spacing: -.025em; line-height: 1.28; margin: 0; }
 .comment-figure figcaption { border-top: 1px solid rgba(255,255,255,.11); color: #aeb9cb; font-size: 15px; line-height: 1.45; margin-top: 26px; padding-top: 17px; }
 
