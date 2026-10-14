@@ -156,7 +156,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .prompt-copy { align-items: center; background: transparent; border: 0; color: #f4f6fb; cursor: pointer; display: inline-flex; font-size: 16px; font-weight: 600; gap: 9px; padding: 5px 0; }
 .prompt-copy:hover { color: #9cb7ff; }
 .prompt-copy svg { height: 22px; width: 22px; }
-.prompt-area { background: transparent; border: 0; border-radius: 0; color: #f3f5f9; font-family: var(--font-hanken-grotesk), Arial, Helvetica, sans-serif; font-size: 17px; line-height: 1.65; min-height: 400px; padding: 0; resize: vertical; }
+.prompt-area { background: transparent; border: 0; border-radius: 0; color: #f3f5f9; font-family: var(--font-hanken-grotesk), Arial, Helvetica, sans-serif; font-size: 17px; line-height: 1.65; min-height: 400px; overflow: hidden; padding: 0; resize: none; }
 .prompt-area:focus { outline: none; }
 .output-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 13px; }
 .copy-status, .checklist-status { color: #a5dcbf; font-size: 14px; font-weight: 600; }

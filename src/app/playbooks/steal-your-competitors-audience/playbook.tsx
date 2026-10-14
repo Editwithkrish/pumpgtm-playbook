@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { type FormEvent, useEffect, useMemo, useState } from "react";
+import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 type Signal = {
   observation: string;
@@ -110,12 +110,20 @@ export default function CompetitorAudiencePlaybook() {
   const [copyError, setCopyError] = useState(false);
   const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [checklistReady, setChecklistReady] = useState(false);
+  const promptAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const canBuild = buyer.trim().length >= 3 && problem.trim().length >= 3 && validHttpsUrl(postUrl);
   const urlIsInvalid = postUrl.trim().length > 0 && !validHttpsUrl(postUrl);
   const prompt = useMemo(() => buildPrompt(buyer, problem, context, postUrl), [buyer, problem, context, postUrl]);
   const checklistItems = checklistGroups.flatMap((group) => group.items);
   const checkedCount = checklistItems.filter(([id]) => checked[id]).length;
+
+  useEffect(() => {
+    const area = promptAreaRef.current;
+    if (!area) return;
+    area.style.height = "auto";
+    area.style.height = `${Math.max(400, area.scrollHeight)}px`;
+  }, [prompt]);
 
   useEffect(() => {
     const restore = window.setTimeout(() => {
@@ -320,7 +328,7 @@ export default function CompetitorAudiencePlaybook() {
               </form>
 
               {built && <section className="output" aria-labelledby="draft-title"><div className="output-header"><p className="draft-label">Draft: review before sending</p><h3 id="draft-title">First-message starter</h3><p>Check the role and company first. A relevant comment is a starting point, not proof they want to buy.</p></div><textarea aria-label="Editable first-message draft" className="draft-area" maxLength={500} onChange={(event) => setMessage(event.target.value)} value={message} /><div className="output-actions"><button className="copy-button" onClick={() => copyText(message, "Message")} type="button">Copy message</button>{copyStatus && <span className={`copy-status${copyError ? " error" : ""}`} aria-live="polite">{copyStatus}</span>}</div></section>}
-              <section className="prompt-wrap" aria-label="PumpGTM handoff prompt"><div className="prompt-card-header"><div><p className="draft-label">Ready to copy</p><h3>PumpGTM research prompt</h3></div><button className="prompt-copy" onClick={() => copyText(prompt, "Prompt")} type="button"><svg aria-hidden="true" fill="none" viewBox="0 0 24 24"><rect height="13" rx="2" stroke="currentColor" strokeWidth="1.8" width="13" x="8" y="8" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" /></svg>Copy prompt</button></div><textarea aria-label="PumpGTM handoff prompt" className="prompt-area" readOnly value={prompt} /></section>
+              <section className="prompt-wrap" aria-label="PumpGTM handoff prompt"><div className="prompt-card-header"><div><p className="draft-label">Ready to copy</p><h3>PumpGTM research prompt</h3></div><button className="prompt-copy" onClick={() => copyText(prompt, "Prompt")} type="button"><svg aria-hidden="true" fill="none" viewBox="0 0 24 24"><rect height="13" rx="2" stroke="currentColor" strokeWidth="1.8" width="13" x="8" y="8" /><path d="M16 8V5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" /></svg>Copy prompt</button></div><textarea aria-label="PumpGTM handoff prompt" className="prompt-area" readOnly ref={promptAreaRef} value={prompt} /></section>
             </div>
           </section>
 
