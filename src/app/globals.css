@@ -137,8 +137,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .output-header p { color: #aab4c4; line-height: 1.5; margin: 0; }
 .draft-label { color: #8eabff !important; font-size: 13px !important; font-weight: 600; letter-spacing: .07em; margin: 0 0 9px !important; text-transform: uppercase; }
 .draft-area { min-height: 108px; resize: vertical; }
-.prompt-wrap { border-top: 1px solid var(--line-soft); margin-top: 27px; padding-top: 25px; }
-.prompt-area { color: #c9d1de; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 13px; min-height: 260px; resize: vertical; }
+.prompt-wrap { background: #252f42; border: 1px solid rgba(166,187,224,.38); border-radius: 22px; margin-top: 30px; padding: 31px 34px 26px; }
+.prompt-card-header { align-items: center; display: flex; gap: 18px; justify-content: space-between; margin-bottom: 20px; }
+.prompt-card-header h3 { color: #fff; font-size: 22px; font-weight: 600; letter-spacing: -.02em; margin: 0; }
+.prompt-copy { align-items: center; background: transparent; border: 0; color: #f4f6fb; cursor: pointer; display: inline-flex; font-size: 16px; font-weight: 600; gap: 9px; padding: 5px 0; }
+.prompt-copy:hover { color: #9cb7ff; }
+.prompt-copy svg { height: 22px; width: 22px; }
+.prompt-area { background: transparent; border: 0; border-radius: 0; color: #f3f5f9; font-family: var(--font-hanken-grotesk), Arial, Helvetica, sans-serif; font-size: 17px; line-height: 1.65; min-height: 400px; padding: 0; resize: vertical; }
+.prompt-area:focus { outline: none; }
 .output-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 13px; }
 .copy-status, .checklist-status { color: #a5dcbf; font-size: 14px; font-weight: 600; }
 .copy-status.error, .checklist-status.error { color: var(--danger); }
@@ -220,6 +226,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .walkthrough-figure { gap: 22px; padding: 22px; }
   .worksheet, .output { padding: 22px; }
   .output { border-radius: 0 0 16px 16px; }
+  .prompt-wrap { border-radius: 17px; margin-top: 24px; padding: 23px 21px 20px; }
+  .prompt-card-header { align-items: flex-start; }
+  .prompt-card-header h3 { font-size: 20px; }
+  .prompt-copy { font-size: 14px; }
+  .prompt-area { font-size: 16px; min-height: 460px; }
   .checklist-summary { align-items: flex-start; flex-direction: column; gap: 13px; }
   .checklist-groups label { font-size: 16px; }
   .start-play-cta { border-radius: 24px; margin-top: 72px; padding: 31px 24px; }
